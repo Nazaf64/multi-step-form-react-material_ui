@@ -13,6 +13,11 @@ export class Confirm extends Component {
         this.props.nextStep();
     }
 
+    back = e => {
+      e.preventDefault();
+      this.props.prevStep();
+  }
+
   render() {
     const { values: { firstName, lastName, email, occupation, city, bio } } = this.props;
     return (
@@ -51,6 +56,12 @@ export class Confirm extends Component {
             primary={true}
             styles={styles.button}
             onClick={this.continue}
+          />
+          <Button 
+            label="Back"
+            primary={false}
+            styles={styles.button}
+            onClick={this.back}
           />
         </React.Fragment>
       </ThemeProvider>
